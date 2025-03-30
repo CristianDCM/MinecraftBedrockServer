@@ -11,10 +11,10 @@ PathLength=${#USERPATH}
 if [[ "$PathLength" -gt 12 ]]; then
     PATH="$USERPATH"
 else
-    echo "Unable to set path variable.  You likely need to download an updated version of SetupMinecraft.sh from GitHub!"
+    echo "No se puede establecer la variable de ruta. Probablemente necesites descargar una versión actualizada de SetupMinecraft.sh desde GitHub!"
 fi
 
 rm -rf dirname/minecraftbe/servername/downloads
 rm -f dirname/minecraftbe/servername/version_pin.txt
 rm -f dirname/minecraftbe/servername/version_installed.txt
-echo "All folders have been cleaned!"
+echo "¡Se han limpiado todas las carpetas!"

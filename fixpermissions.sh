@@ -12,10 +12,10 @@ PathLength=${#USERPATH}
 if [[ "$PathLength" -gt 12 ]]; then
   PATH="$USERPATH"
 else
-  echo "Unable to set path variable.  You likely need to download an updated version of SetupMinecraft.sh from GitHub!"
+  echo "No se puede establecer la variable de ruta. Probablemente necesites descargar una versión actualizada de SetupMinecraft.sh desde GitHub"
 fi
 
-echo "Taking ownership of all server files/folders in dirname/minecraftbe/servername..."
+echo "Tomando propiedad de todos los files/folders del servidor en dirname/minecraftbe/servername..."
 sudo -n chown -R userxname dirname/minecraftbe/servername
 sudo -n chmod -R 755 dirname/minecraftbe/servername/*.sh
 if [ -e dirname/minecraftbe/servername/bedrock_server ]; then
@@ -23,4 +23,4 @@ if [ -e dirname/minecraftbe/servername/bedrock_server ]; then
   sudo -n chmod +x dirname/minecraftbe/servername/bedrock_server
 fi
 
-echo "Complete"
+echo "Completo"

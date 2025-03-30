@@ -8,12 +8,12 @@ PathLength=${#USERPATH}
 if [[ "$PathLength" -gt 12 ]]; then
    PATH="$USERPATH"
 else
-   echo "Unable to set path variable.  You likely need to download an updated version of SetupMinecraft.sh from GitHub!"
+   echo "No se puede establecer la variable de ruta. Probablemente necesites descargar una versión actualizada de SetupMinecraft.sh desde GitHub!"
 fi
 
 # Check to make sure we aren't running as root
 if [ $(id -u) = 0 ]; then
-   echo "This script is not meant to be run as root. Please run ./update.sh as a non-root user, without sudo;  Exiting..."
+   echo "Este script no está diseñado para ejecutarse como root. Ejecute ./update.sh como usuario no root, sin sudo. Saliendo...."
    exit 1
 fi
 

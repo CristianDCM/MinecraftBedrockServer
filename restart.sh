@@ -8,44 +8,44 @@ PathLength=${#USERPATH}
 if [[ "$PathLength" -gt 12 ]]; then
   PATH="$USERPATH"
 else
-  echo "Unable to set path variable.  You likely need to download an updated version of SetupMinecraft.sh from GitHub!"
+  echo "No se puede establecer la variable de ruta. Probablemente necesites descargar una versión actualizada de SetupMinecraft.sh desde GitHub"
 fi
 
 # Check to make sure we aren't running as root
 if [[ $(id -u) = 0 ]]; then
-  echo "This script is not meant to be run as root. Please run ./restart.sh as a non-root user, without sudo;  Exiting..."
+  echo "Este script no está diseñado para ejecutarse como root. Ejecute ./restart.sh como usuario no root, sin sudo. Saliendo..."
   exit 1
 fi
 
 # Check if server is started
 if ! screen -list | grep -q '\.servername\s'; then
-  echo "Server is not currently running!"
+  echo "¡El servidor no está ejecutándose actualmente!"
   exit 1
 fi
 
-echo "Sending restart notifications to server..."
+echo "Enviando notificaciones de reinicio al servidor..."
 
 # Start countdown notice on server
-screen -Rd servername -X stuff "say Server is restarting in 30 seconds! $(printf '\r')"
+screen -Rd servername -X stuff "Digamos que el servidor se reiniciará en 30 segundos! $(printf '\r')"
 sleep 23s
-screen -Rd servername -X stuff "say Server is restarting in 7 seconds! $(printf '\r')"
+screen -Rd servername -X stuff "Digamos que el servidor se reiniciará en 7 segundos! $(printf '\r')"
 sleep 1s
-screen -Rd servername -X stuff "say Server is restarting in 6 seconds! $(printf '\r')"
+screen -Rd servername -X stuff "Digamos que el servidor se reiniciará en 6 segundos! $(printf '\r')"
 sleep 1s
-screen -Rd servername -X stuff "say Server is restarting in 5 seconds! $(printf '\r')"
+screen -Rd servername -X stuff "Digamos que el servidor se reiniciará en 5 segundos! $(printf '\r')"
 sleep 1s
-screen -Rd servername -X stuff "say Server is restarting in 4 seconds! $(printf '\r')"
+screen -Rd servername -X stuff "Digamos que el servidor se reiniciará en 4 segundos! $(printf '\r')"
 sleep 1s
-screen -Rd servername -X stuff "say Server is restarting in 3 seconds! $(printf '\r')"
+screen -Rd servername -X stuff "Digamos que el servidor se reiniciará en 3 segundos! $(printf '\r')"
 sleep 1s
-screen -Rd servername -X stuff "say Server is restarting in 2 seconds! $(printf '\r')"
+screen -Rd servername -X stuff "Digamos que el servidor se reiniciará en 2 segundos! $(printf '\r')"
 sleep 1s
-screen -Rd servername -X stuff "say Server is restarting in 1 second! $(printf '\r')"
+screen -Rd servername -X stuff "Digamos que el servidor se reiniciará en 1 segundo! $(printf '\r')"
 sleep 1s
-screen -Rd servername -X stuff "say Closing server...$(printf '\r')"
+screen -Rd servername -X stuff "say Cerrando servidor...$(printf '\r')"
 screen -Rd servername -X stuff "stop$(printf '\r')"
 
-echo "Closing server..."
+echo "Cerrando servidor..."
 # Wait up to 30 seconds for server to close
 StopChecks=0
 while [[ $StopChecks -lt 30 ]]; do
@@ -58,7 +58,7 @@ done
 
 if screen -list | grep -q '\.servername\s'; then
   # Server still hasn't stopped after 30s, tell Screen to close it
-  echo "Minecraft server still hasn't closed after 30 seconds, closing screen manually"
+  echo "El servidor de Minecraft aún no se ha cerrado después de 30 segundos, cerrando la pantalla manualmente"
   screen -S servername -X quit
   sleep 10
 fi
