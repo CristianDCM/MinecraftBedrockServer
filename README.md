@@ -2,42 +2,42 @@
 
 [日本語版 README はこちら](https://github.com/TheRemote/MinecraftBedrockServer/blob/master/README_jp.md)
 
-Sets up a Minecraft Bedrock dedicated server on Ubuntu / Debian with options for automatic updates, backups and running automatically at startup.<br>
-View installation instructions at: https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/<br>
+Configura un servidor dedicado de Minecraft Bedrock en Ubuntu/Debian con opciones de actualizaciones automáticas, copias de seguridad y ejecución automática al inicio.<br>
+Consulta las instrucciones de instalación en: https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/<br>
 <br>
-If you are looking for a Docker containerized version of the Minecraft Bedrock Dedicated Server, it is available here:  <a href="https://github.com/TheRemote/Legendary-Bedrock-Container">https://github.com/TheRemote/Legendary-Bedrock-Container</a>
+Si buscas una versión en contenedores Docker del servidor dedicado de Minecraft Bedrock, está disponible aquí: <a href="https://github.com/TheRemote/Legendary-Bedrock-Container">https://github.com/TheRemote/Legendary-Bedrock-Container</a>
 
-<h2>Features</h2>
+<h2>Características</h2>
 <ul>
-  <li>Sets up the official Minecraft Bedrock Server (currently in alpha testing)</li>
-  <li>Fully operational Minecraft Bedrock edition server in a couple of minutes</li>
-  <li>Ubuntu / Debian distributions supported</li>
-  <li>Sets up Minecraft as a system service with option to autostart at boot</li>
-  <li>Automatic backups when server restarts</li>
-  <li>Supports multiple instances -- you can run multiple Bedrock servers on the same system</li>
-  <li>Updates automatically to the latest or user-defined version when server is started</li>
-  <li>Easy control of server with start.sh, stop.sh and restart.sh scripts</li>
-  <li>Adds logging with timestamps to "logs" directory</li>
-  <li>Optional scheduled daily restart of server using cron</li>
-  <li>*NEW* Box64 support for 64 bit ARM (aarch64) which greatly improves emulation speed over QEMU by translating some system calls to native system calls</li>
+<li>Configura el servidor oficial de Minecraft Bedrock (actualmente en fase alfa)</li>
+<li>Servidor de Minecraft edición Bedrock totalmente operativo en un par de minutos</li>
+<li>Compatible con distribuciones Ubuntu/Debian</li>
+<li>Configura Minecraft como un servicio del sistema con opción de inicio automático al arrancar</li>
+<li>Copias de seguridad automáticas al reiniciar el servidor</li>
+<li>Compatible con múltiples instancias: puedes ejecutar varios servidores Bedrock en el mismo sistema</li>
+<li>Se actualiza automáticamente a la última versión o a la definida por el usuario al iniciar el servidor</li>
+<li>Fácil control del servidor con los scripts start.sh, stop.sh y restart.sh</li>
+<li>Añade registro con marcas de tiempo al directorio "logs"</li>
+<li>Reinicio diario programado opcional del servidor mediante cron</li>
+<li>*NUEVO* Compatibilidad con Box64 para ARM de 64 bits (aarch64), que mejora considerablemente la velocidad de emulación en comparación con QEMU al traducir algunas llamadas del sistema a llamadas nativas del sistema.</li>
 </ul>
 
-<h2>Quick Installation Instuctions</h2>
-To run the installation type:<br>
-<pre>curl https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh | bash</pre>
+<h2>Instrucciones rápidas de instalación</h2>
+Para ejecutar la instalación, escriba:<br>
+<pre>curl https://raw.githubusercontent.com/CristianDCM/MinecraftBedrockServer/master/SetupMinecraft.sh | bash</pre>
 
-<h2>Installation Guide</h2>
-<a href="https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/">Minecraft Bedrock Dedicated Server Script Installation / Configuration Guide</a>
+<h2>Guía de instalación</h2>
+<a href="https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/">Guía de instalación y configuración del script del servidor dedicado de Minecraft Bedrock</a>
 
-<h2>Installing Resource Packs / RTX Support</h2>
-<p>For instructions on how to install resource packs (including optional RTX support), view my <a href="https://jamesachambers.com/minecraft-bedrock-server-resource-pack-guide/" target="_blank" rel="noopener">step-by-step Minecraft Bedrock Dedicated Server Resource Packs / Optional RTX guide here</a>.</p>
+<h2>Instalación de paquetes de recursos / Compatibilidad con RTX</h2>
+<p>Para obtener instrucciones sobre cómo instalar paquetes de recursos (incluida la compatibilidad opcional con RTX), consulta mi <a href="https://jamesachambers.com/minecraft-bedrock-server-resource-pack-guide/" target="_blank" rel="noopener">guía paso a paso de los paquetes de recursos del servidor dedicado de Minecraft Bedrock / RTX opcional aquí</a>.</p>
 
-<h2>Tested Distributions</h2>
+<h2>Distribuciones probadas</h2>
 <ul>
- <li>Ubuntu / Ubuntu Server 22.04</li>
- <li>Ubuntu / Ubuntu Server 20.04</li>
- <li>Ubuntu / Ubuntu Server 18.04</li>
- <li>Debian Stretch / Buster</li>
+<li>Ubuntu / Ubuntu Server 22.04</li>
+<li>Ubuntu / Ubuntu Servidor 20.04</li> 
+<li>Ubuntu/Ubuntu Servidor 18.04</li> 
+<li>Debian Stretch/Buster</li>
 </ul>
   
 <h2>Tested Platforms</h2>
@@ -54,29 +54,30 @@ To run the installation type:<br>
     </ul>
   </ul>
 </ul>
+Múltiples servidores y rutas de instalación
+<p>El servidor admite varios servidores simultáneamente. Al ejecutar SetupMinecraft.sh de nuevo, seleccione la misma ruta raíz que para los servidores anteriores. La estructura de ruta de los scripts es $ROOTPATH/minecraftbe/yourservername, por lo que la ruta raíz que SetupMinecraft.sh solicita siempre debe ser la misma.
+<p>La carpeta del servidor individual se determina por el nombre del servidor que introduzca. Si se trata de un servidor existente, los scripts se actualizarán de forma segura. Si se trata de un servidor nuevo, se creará una nueva carpeta en $ROOTPATH/minecraftbe/newservername.</p>
+<p>Mantén la misma ruta de instalación para todos los servidores y el script se encargará de todo.</p>
 
-<h2>Multiple Servers and Installation Paths</h2>
-<p>The server supports multiple servers at once.  When you run SetupMinecraft.sh again, pick the identical root path as any previous servers.  The path structure of the scripts is $ROOTPATH/minecraftbe/yourservername, which is why the "root" path SetupMinecraft.sh asks you for should always be the same.</p>
-<p>The individual server folder is determined by the "server name" you enter for your server.  If it's an existing server, the scripts will be safely updated.  If it's a new server, then a new folder will be created under $ROOTPATH/minecraftbe/newservername.</p>
-<p>Keep the installation path the same for all servers and the script will manage all this for you.</p>
+<h2>Anulación de versión</h2>
+Puedes volver a una versión anterior con el script revert.sh incluido en tu directorio, como se muestra a continuación: <pre>./revert.sh
+Establece la versión anterior en version_pin.txt: bedrock-server-1.19.10.20.zip</pre>
+Si tienes una versión específica que quieres ejecutar, también puedes crear version_pin.txt tú mismo, como se muestra a continuación: <pre>echo "bedrock-server-1.18.33.02.zip" > version_pin.txt</pre>
+La retención de la versión se puede eliminar eliminando version_pin.txt. Esto permitirá que se actualice a la última versión.
 
-<h2>Version Override</h2>
-You can revert to a previous version with the revert.sh script included in your directory like this: <pre>./revert.sh
-Set previous version in version_pin.txt: bedrock-server-1.19.10.20.zip</pre>
-If you have a specific version you would like to run, you can also create version_pin.txt yourself like this: <pre>echo "bedrock-server-1.18.33.02.zip" > version_pin.txt</pre>
-The version hold can be removed by deleting version_pin.txt.  This will allow it to update to the latest version again!
+Nota de solución de problemas: Máquinas virtuales de Oracle
+Un problema muy común con los tutoriales de máquinas virtuales de Oracle, que suelen mostrar cómo usar una máquina virtual gratuita, es que la configuración de esta es mucho más difícil que la de casi cualquier otro producto u oferta.
+El síntoma que se produce es que nadie podrá conectarse. Esto no se debe al segundo conjunto de puertos que se muestra después del inicio (un error de Bedrock de hace casi 3 o 4 años que todos los servidores presentan).
+Sino a que hay varios pasos que se deben seguir para abrir los puertos en la máquina virtual de Oracle. Es necesario:
 
-<h2>Troubleshooting Note - Oracle Virtual Machines</h2>
-A very common problem people have with the Oracle Virtual Machine tutorials out there that typically show you how to use a free VM is that the VM is much more difficult to configure than just about any other product / offering out there.<br>
-The symptom you will have is that nobody will be able to connect.  This is not because of the second set of ports that it shows after startup (that is a nearly 3-4 years now old Bedrock bug and all servers do it).<br>
-It is because there are several steps you need to take to open the ports on the Oracle VM.  You need to both:<br>
 <ul>
-  <li>Set the ingress ports (TCP/UDP) in the Virtual Cloud Network (VCN) security list</li>
-  <li>*and* set the ingress ports in a Network Security Group assigned to your instance</li>
+<li>Configurar los puertos de entrada (TCP/UDP) en la lista de seguridad de la red virtual en la nube (VCN)</li>
+
+*y* configurar los puertos de entrada en un grupo de seguridad de red asignado a la instancia</li>
 </ul><br>
-Both of these settings are typically required before you will be able to connect to your VM instance.  This is purely configuration related and has nothing to do with the script or the Minecraft server itself.<br><br>
-I do not recommend this platform due to the configuration difficulty but the people who have gone through the pain of configuring an Oracle VM have had good experiences with it after that point.  Just keep in mind it's going to be a rough ride through the configuration for most people.<br><br>
-Here are some additional links:<br>
+Ambas configuraciones suelen ser necesarias para poder conectarse a la instancia de la máquina virtual. Esto es puramente de configuración y no tiene nada que ver con el script ni con el servidor de Minecraft.<br><br>
+No recomiendo esta plataforma debido a la dificultad de configuración, pero quienes han tenido que configurar una máquina virtual Oracle han tenido buenas experiencias con ella posteriormente. Solo tengan en cuenta que la configuración será un proceso complicado para la mayoría de las personas.<br><br>
+Aquí hay información adicional. Enlaces:<br>
 <ul>
 <li>https://jamesachambers.com/official-minecraft-bedrock-dedicated-server-on-raspberry-pi/comment-page-8/#comment-13946</li>
 <li>https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/comment-page-53/#comment-13936</li>
@@ -84,366 +85,375 @@ Here are some additional links:<br>
 <li>https://jamesachambers.com/legendary-minecraft-bedrock-container/comment-page-2/#comment-13706</li>
 </ul>
 
-<h2>Troubleshooting Note - Hyper-V</h2>
-There is a weird bug in Hyper-V that breaks UDP connections on the Minecraft server.  The fix for this is that you have to use a Generation 1 VM with the Legacy LAN network driver.<br>
-See the following links:<br>
+Nota de solución de problemas: Hyper-V
+Hay un error extraño en Hyper-V que interrumpe las conexiones UDP en el servidor de Minecraft. La solución es usar una máquina virtual de Generación 1 con el controlador de red LAN heredado.<br>
+Consulta los siguientes enlaces:<br>
 <ul>
 <li>https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/comment-page-54/#comment-13863</li>
 <li>https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/comment-page-56/#comment-14207</li>
 </ul>
 
-<h2>Buy A Coffee / Donate</h2>
-<p>People have expressed some interest in this (you are all saints, thank you, truly)</p>
+<h2>Comprar un café / Donar</h2>
+<p>Hay gente interesada en esto (¡son todos unos santos, gracias de verdad!)</p>
 <ul>
- <li>PayPal: 05jchambers@gmail.com</li>
- <li>Venmo: @JamesAChambers</li>
- <li>CashApp: $theremote</li>
- <li>Bitcoin (BTC): 3H6wkPnL1Kvne7dJQS8h7wB4vndB9KxZP7</li>
+<li>PayPal: 05jchambers@gmail.com</li>
+<li>Venmo: @JamesAChambers</li>
+<li>CashApp: $theremote</li>
+<li>Bitcoin (BTC): 3H6wkPnL1Kvne7dJQS8h7wB4vndB9KxZP7</li>
 </ul>
 
-<h2>Update History</h2>
+<h2>Historial de actualizaciones</h2>
 <ul>
-  <li>December 1st 2024</li>
+<li>1 de diciembre de 2024</li>
+<ul>
+<li>URL de descarga corregida</li>
+</ul>
+<li>1 de octubre de 2023</li>
+<ul>
+<li>Importación de claves GPG corregida para compilaciones ARM64</li>
+</ul>
+<li>14 de enero de 2023</li>
+<ul>
+<li>Cambiar la comprobación de conectividad de google.com a minecraft.net para evitar bloqueos en algunos países</li>
+</ul>
+<li>4 de septiembre 2022</li>
+<ul>
+<li>Eliminar código innecesario de fixpermissions.sh</li>
+</ul>
+<li>12 de agosto de 2022</li>
+<ul>
+<li>Añadir el script de la utilidad clean.sh para limpiar la carpeta de descargas, eliminar la fijación de versiones y forzar la reinstalación de la versión actual</li>
+<li>Habilitar el registro de contenido predeterminado, que muestra errores relacionados con los paquetes de recursos/comportamiento</li>
+</ul>
+<li>12 de agosto de 2022</li>
+<ul>
+<li>Añadir el script de la utilidad clean.sh para limpiar la carpeta de descargas, eliminar la fijación de versiones y forzar la reinstalación de la versión actual</li>
+<li>Habilitar el registro de contenido predeterminado, que muestra errores relacionados con los paquetes de recursos/comportamiento</li>
+</ul>
+<li>10 de agosto de 2022</li>
+<ul>
+<li>Se movió la variable DirName a una variable personalizada en la parte superior de SetupMinecraft.sh</li>
+</ul>
+<li>4 de agosto de 2022</li>
+<ul>
+<li>El script ahora elimina los caracteres no alfanuméricos de la variable servername (para evitar el uso de comillas y otros símbolos que la interrumpan).</li>
+</ul>
+<li>2 de agosto de 2022</li>
+<ul>
+<li>Se ha añadido compatibilidad con Box64 para ARM de 64 bits (aarch64). No se recomienda usar ARM de 32 bits, ya que no puede usar Box64, por lo que será mucho más lento que si instala una versión de 64 bits de su sistema operativo en el dispositivo.</li>
+<li>Debe usar un sistema operativo de 64 bits para beneficiarse de las velocidades mejoradas de Box64 (tanto Ubuntu como Raspberry Pi tienen versiones de 64 bits).</li>
+<li>Una forma sencilla de comprobar que usa 64 bits es usar <pre>uname -m</pre>, que devolverá "aarch64" si usa ARM de 64 bits.</li>
+</ul>
+<li>24 de julio de 2022</li>
+<ul>
+        <li>Usar libssl1.1 del repositorio en lugar de servidores Ubuntu, ya que cambia cada una o dos semanas (gracias a theblujuice, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/129">problema n.° 129)</a></li>
+</ul>
+<li>21 de julio de 2022</li>
+<ul>
+<li>Aumentar el tiempo de espera en minecraftbe.service para evitar que los servidores con tiempos de copia de seguridad más largos tengan problemas de inicio</li>
+</ul>
+<li>19 de julio de 2022</li>
+<ul>
+<li>Corregir un error de sintaxis menor en update.sh</li>
+</ul>
+<li>14 de julio de 2022</li>
+<ul>
+<li>Corregir un error de sintaxis en la nueva instalación de libssl3</li>
+<li>Actualizar el archivo depends.zip para dispositivos ARM (el Se recomienda encarecidamente la versión de Docker para dispositivos ARM.</li>
+</ul>
+<li>14 de julio de 2022</li>
+<ul>
+<li>Añadir libssl3 a las dependencias</li>
+</ul>
+<li>7 de julio de 2022</li>
+<ul>
+<li>Actualizar la URL de instalación de respaldo de curl al paquete más reciente</li>
+<li>Correcciones de puntuación y gramática en el archivo README (gracias a TheWilbo, <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/128">solicitud de extracción n.° 128)</a></li>
+</ul>
+<li>11 de junio de 2022</li>
+<ul>
+<li>Añadir los archivos de plantilla predeterminados allowlist.json y permissions.json para evitar fallos cuando faltan (gracias a Eike)</li>
+</ul>
+<li>Junio 10 de 2022</li>
+<ul>
+<li>Se solucionó el problema al escapar el comando screen en SetupMinecraft.sh (en la comprobación de inicio).</li>
+</ul>
+<li>5 de junio de 2022</li>
+<ul>
+<li>Se añadió un escape adicional a los comandos screen -list para evitar que nombres similares coincidan con la consulta grep (gracias, wheelibin).</li>
+<li>Se modificó el comando grep -q para usar comillas simples y evitar la expansión de caracteres adicionales (sigo recomendando solo letras y números para la etiqueta/nombre del servidor para minimizar los problemas).</li>
+</ul>
+<li>31 de mayo de 2022</li>
+<ul>
+<li>Se añadió una comprobación para asegurar que server.properties exista al descomprimir el servidor, ya que sin ella se producirá un error de inicio.</li>
+</ul>
+<li>26 de mayo de 2022</li>
+<ul>
+<li>Se añadió revert.sh Para descargar SetupMinecraft.sh</li>
+<li>Añadir documentación sobre la anulación de la versión</li>
+</ul>
+<li>25 de mayo de 2022</li>
+<ul>
+        Se agregó version_pin.txt para permitir la anulación manual de la versión del servidor en ejecución. Ejecute ./revert.sh en la carpeta del servidor para configurar la versión n-1 para que se ejecute en el próximo reinicio. Elimine version_pin.txt si desea reanudar las actualizaciones automáticas. (Gracias, smallsam)</li>
+</ul>
+<li>15 de mayo de 2022</li>
+<ul>
+<li>Se añadió el borrado de pantalla al principio de start.sh para evitar un problema de inicio que podría ocurrir si hubiera una instancia de pantalla "muerta" (Gracias, grimholme)</li>
+</ul>
+<li>9 de mayo de 2022</li>
+<ul>
+<li>Se actualizó la URL de instalación de respaldo para OpenSSL 1.1</li>
+</ul>
+<li>4 de mayo de 2022</li>
+<ul>
+<li>Se solucionó un problema en Debian donde el comando de ruta (/sbin/route) no está en la ruta predeterminada agregando una verificación para esto</li>
+<li>Se agregó Ubuntu 22.04 a la lista de distribuciones probadas (actualicé mi sistema operativo de escritorio a este hoy)</li>
+</ul>
+<li>28 de abril 2022</li>
+<ul>
+<li>Se corrigió una línea en fixpermissions.sh que podía provocar problemas en las shells exigentes</li>
+</ul>
+<li>24 de abril de 2022</li>
+<ul>
+<li>Se añadió la instalación del paquete de dependencia para libssl1.1 cuando esté disponible en apt</li>
+<li>Se añadió una instalación de respaldo para libssl1.1 con la esperanza de corregir el instalador para Ubuntu 22.04/22.10 y otras distribuciones que usan libssl3</li>
+<li>Se corrigió un pequeño mensaje de error de cola que podía aparecer al iniciar el servidor si aún no se habían creado registros</li>
+<li>Se añadió DEBIAN_NONINTERACTIVE a algunos comandos de apt para intentar suprimir algunos diálogos interactivos (como la ejecución de un kernel desactualizado) que provocaban que el instalador se bloqueara</li>
+<li>Se corrigió un error en la nueva versión multinúcleo La copia de seguridad provocaba que seleccionara el compresor incorrecto.</li>
+</ul>
+<li>16 de abril de 2022</li>
+<ul>
+<li>Se añadió compatibilidad con varios núcleos de CPU para las copias de seguridad, lo que debería acelerar el proceso.</li>
+</ul>
+<li>19 de marzo de 2022</li>
+<ul>
+<li>Se eliminó el calificador /sbin del comando de ruta, ya que SetupMinecraft.sh ahora almacena la variable PATH al principio de cada script (gracias a LookedPath, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/120">problema n.° 120</a>).</li>
+</ul>
+<li>10 de marzo de 2022</li>
+<ul>
+<li>Se añadió el nuevo archivo allowlist.json a la lista blanca de descompresión (gracias a shaman79, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/118">problema n.° 118</a>)</li>
+<li>Se agregó información para comprar un café y hacer donaciones (gracias a vandersonmota, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/117">problema n.° 117</a>)</li>
+</ul>
+<li>2 de noviembre de 2021</li>
+<ul>
+<li>Se corrigió un error adicional/delante del script de corrección de permisos (gracias a MarkBarbieri, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/109">problema n.° 109</a>)</li>
+</ul>
+<li>31 de octubre de 2021</li>
+<ul>
+<li>Se corrigió la falta de sudo en la línea fixpermissions en start.sh (gracias a MarkBarbieri, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/109">problema n.° 109</a>)</li>
+<li>Se corrigió la falta del parámetro -a del archivo /etc/sudoers. Añadido gracias a MarkBarbieri, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/109">problema n.° 109</a>)</li>
+</ul>
+<li>1 de agosto de 2021</li>
+<ul>
+<li>Se actualizó la documentación y el mensaje de selección de la ruta raíz para aclarar que el directorio raíz debe ser el mismo para TODOS los servidores.</li>
+<li>No lo cambie a menos que instale en un disco diferente. En ese caso, use la misma ruta raíz para TODOS los servidores, ya que seguirán la estructura $ROOTPATH/minecraftbe/yourservername</li>
+<li>Seleccionar una tormenta perfecta de rutas no válidas. Esto ha provocado que los archivos del servidor de otros usuarios se hayan podado anteriormente debido a un error en un subnivel de carpeta, etc. Sigue atentamente las instrucciones aquí, no las modifiques y asegúrate de tener copias de seguridad (fuera de la carpeta principal de copias de seguridad de Minecraft) antes de intentar instalar un servidor adicional o actualizar scripts existentes.
+
+<li>Afortunadamente, esta persona estaba iniciando un nuevo servidor, así que la poda no se volvió grave, pero insisto en que no se modifiquen las rutas a menos que seas un experto en un caso práctico como tener un disco completo separado para todos los servidores de Minecraft. ¡Usa el mismo directorio raíz siempre (preferiblemente el predeterminado)!</li>
+
+</ul>
+  <li>27 de julio de 2021</li>
+<ul>
+<li>Se limpió SetupMinecraft.sh y se eliminó el código redundante organizándolo en funciones</li>
+<li>Los scripts ahora corrigen todos los permisos de los archivos del servidor al iniciar</li>
+<li>Se añadió el archivo /etc/sudoers.d/minecraftbe para incluir el permiso sudo sin contraseña para fixpermissions y sudo systemctl start server</li>
+</ul>
+<li>21 de julio de 2021</li>
+<ul>
+<li>Se actualizó la documentación y restart.sh para documentar cómo habilitar que el servicio systemd se muestre como "en línea" después de ser llamado por restart.sh (útil para quienes rastrean los servidores que usan el servicio systemd). Se agregó una línea al archivo sudoers para permitir el uso de sudo sin contraseña para el comando sudo systemctl start yourservername. Restart.sh ahora incluye líneas comentadas al final, junto con instrucciones sobre cómo habilitar esta función si la necesita (la mayoría probablemente no la necesite).
+
+<li>Se agregó la redirección de errores a la línea crontab para ayudar a diagnosticar fallos durante los reinicios programados y se eliminó ExecStartPre del servicio, ya que no hacía nada (ejecute ./fixpermissions.sh si necesita corregir los permisos) y causaba problemas de compatibilidad con versiones anteriores de systemd.
+
+<li>17 de julio de 2021</li>
+
+<ul>
+
+<li>Se agregó una comprobación para garantizar que start.sh y otros scripts no se ejecuten como root. Si esto ocurre, debes usar sudo screen -r para encontrar la pantalla y los permisos serán incorrectos, ya que root no es el propietario de los archivos del servidor.</li>
+<li>Si sabes que ejecutaste el script o el servidor como root (lo que crea archivos propiedad de root en lugar del usuario normal) y tu servidor no arranca o funciona mal, ejecuta el script fixpermissions desde la carpeta del servidor con ./fixpermissions.sh y los corregirá automáticamente.</li>
+</ul>
+<li>15 de julio de 2021</li>
+<ul>
+<li>Se agregó el script de conveniencia update.sh para ejecutar SetupMinecraft.sh y actualizar todo a la última versión.</li>
+<li>Se agregó un bucle de validación para la ruta del directorio: si actualizas desde una versión anterior, debes usar el directorio predeterminado.</li>
+<li>Cambiar esto no tiene ningún efecto positivo y nunca he visto ni oído que resuelva ningún problema, a pesar de que se ha solicitado durante años (especialmente si no entiendes las rutas de acceso relativas y completas de Linux). y otras dificultades: ¡déjenlo por defecto!).</li>
+<li>Intento resolver este problema con comprobaciones de seguridad por si acaso les resulta útil a algunas personas, pero no he oído hablar de ello, pero es posible que se elimine por completo o se convierta en una comprobación que deba descargar y modificar el script para habilitarla si sigue siendo una fuente de problemas.</li>
+<li>Depends.zip actualizado para Raspberry Pis</li>
+</ul>
+<li>4 de julio de 2021</li>
+<ul>
+<li>Se añadió la línea sudo que faltaba en algunos prerrequisitos y se eliminó apt-get install sudo, ya que el script ya no se ejecuta como root (instalar sudo si falta). Gracias, Rick Horn.</li>
+</ul>
+<li>3 de julio de 2021</li>
+<ul>
+<li>Se añadió el encabezado Accept-Encoding: Identity a curl, ya que un porcentaje muy pequeño de usuarios recibe un error de "Acceso denegado" sin este encabezado (gracias, titiscan). <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/95">solicitud de extracción n.° 95</a></li>
+<li>Se añadió el encabezado de idioma predeterminado a curl, ya que las computadoras que no estaban en inglés recibían un error de acceso denegado.</li>
+<li>El script ahora comprueba si gawk está presente en start.sh. Si no está instalado (probablemente debido a la reutilización de archivos antiguos de SetupMinecraft.sh), se deshabilitarán las marcas de tiempo. Esto evitará que el servidor falle al iniciarse. Esto se evita al no ejecutar una copia antigua de SetupMinecraft.sh.</li>
+<li>Se eliminó el comando screen -r al final de SetupMinecraft.sh, ya que corregirlo causaba bloqueos. En su lugar, ahora se muestra el comando (screen -r) para abrir la consola de Minecraft. Presiona Ctrl+A y luego Ctrl+D para ocultar la consola una vez dentro.</li>
+<li>Se agregó código para evitar que SetupMinecraft.sh se ejecute como un archivo local (usa el nuevo método curl https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh | bash)</li>
+</ul>
+  2 de julio de 2021
+
+<ul>
+<li>Detección e instalación de dependencias mejoradas
+
+<li>Dependencia wget eliminada
+
+<li>Dependencia gawk añadida. Esto no debería afectar a la mayoría de los sistemas, pero en sistemas que usan mawk por defecto, solucionará los problemas de inicio del servidor relacionados con las marcas de tiempo, ya que mawk no admite strftime
+
+<li>Opción de cuenta regresiva -t corregida en stop.sh (gracias a da99Beast, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/76">problema n.° 76</a>)
+
+<li>Se solucionó un problema grave: la instalación de libcurl3 sobre libcurl4 se permitía en algunas configuraciones (como Ubuntu 18.04) y afectaba gravemente a curl (gracias a Goretech ... <li>Se solucionó un problema por el cual se podían crear carpetas vacías en la ubicación incorrecta si start.sh no se ejecutaba desde la carpeta del servidor (gracias a CobraBitYou, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/93">problema n.° 93</a></li>
+</ul>
+<li>1 de julio de 2021</li>
+<ul>
+<li>Se cambió de wget a curl porque wget se congela (pero curl funciona)</li>
+<li>Se agregó aleatorización al agente de usuario</li>
+</ul>
+<li>19 de junio de 2021</li>
+<ul>
+<li>Se corrigieron las marcas de tiempo para que se muestren en cada línea (gracias a murkyl)</li>
+<li>Se agregó el comando chmod después de la línea de descompresión para que bedrock_server sea ejecutable para <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/22">Problema n.° 22</a> (gracias, murkyl)</li>
+<li>Se fusionó la <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/91">solicitud de extracción n.° 91</a> de starkey-01 para añadir un aviso para un directorio de instalación alternativo. Esto se ha solicitado desde hace tiempo, ¡así que gracias, starkey-01!</li>
+<li>Se fusionó la <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/88">solicitud de extracción n.° 88</a>, aclarando las instrucciones para ejecutar el script como usuario no root (¡gracias, sparagi!).</li>
+</ul>
+<li>23 de mayo de 2021</li>
+<ul>
+<li>El script fixpermissions.sh ahora muestra las últimas 5 líneas del último archivo de registro para facilitar la resolución de problemas. Si tu servidor no se inicia, este script se encargará de ello con frecuencia; de lo contrario, los registros pueden proporcionar información útil.</li>
+</ul>
+<li>22 de mayo de 2021</li>
+<ul>
+<li>Se agregó la configuración de la variable de ruta a cada script para evitar que el servicio no se inicie por no encontrar la ruta correcta.</li>
+<li>Vuelve a descargar SetupMinecraft.sh para esta actualización. El script te avisará cada vez que inicies el sistema indicando que no se pudo establecer la variable de ruta sin el nuevo script SetupMinecraft.sh.</li>
+<li>Se añadió un agente de usuario a la cadena wget para evitar que la comprobación de actualizaciones falle.</li>
+<li>Se añadió una actualización automática a SetupMinecraft.sh si no se ha modificado durante más de 7 días.</li>
+<li>Se actualizaron las dependencias de Raspberry Pi.</li>
+</ul>
+<li>22 de abril de 2021.</li>
+<ul>
+<li>Se añadió una comprobación de seguridad para evitar la instalación en sistemas operativos de 32 bits (i386 o i686). El servidor dedicado oficial de Bedrock solo se lanzó como binario de 64 bits (x86_64) y los intentos de emulación en 32 bits no han dado resultados.</li>
+<li>Se añadió chmod +x bedrock_server a start.sh, ya que las actualizaciones a veces parecen eliminar los permisos de los ejecutables.</li>
+<li>Se corrigió la eliminación del contexto del directorio de copia de seguridad antiguo (gracias a murkyl, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/76">problema n.° 76</a>).<li>
+</ul>
+<li>20 de abril de 2021</li>
+<ul>
+<li>Comando de ruta completo con /sbin/route para evitar que la comprobación de red interrumpa algunos servidores.</li>
+<li>Se añadió una comprobación de seguridad para evitar el uso de la etiqueta de servidor "minecraftbe", que puede interrumpir los scripts.</li>
+<li>Se añadió la comprobación de dependencia de libc6, como informaron varios usuarios. Falta libns1.so.1</li>
+<li>Se añadieron las dependencias curl y libcurl3 como alternativa para distribuciones antiguas y así evitar errores de libcurl.so faltante.</li>
+<li>Se añadió la comprobación de la dependencia libcrypt1.</li>
+</ul>
+<li>7 de abril de 2021</li>
   <ul>
-    <li>Fixed download URL</li>
-  </ul>
-  <li>October 1st 2023</li>
+<li>Si estás actualizando desde una versión anterior, asegúrate de eliminar el archivo SetupMinecraft.sh antiguo y volver a descargar la nueva versión desde cero. Si ves algo como "userxname" en el servicio systemd, estás usando una versión antigua de SetupMinecraft.sh y necesitas descargar la última versión.</li>
+<li>Fixpermissions.sh actualizado: ¡puede solucionar problemas con los permisos si los ves!</li>
+<li>Se corrigió un error con "userxname" que aparecía en start.sh y no se actualizaba con el nombre de usuario correcto.</li>
+<li>Se corrigió un problema que podía activar la autenticación PAM en start.sh.</li>
+</ul>
+<li>16 de marzo de 2021</li>
+<ul>
+<li>Se corrigió una línea sudo incompleta en start.sh que generaba un error (¡gracias a /u/zfa de Reddit!).</li>
+</ul>
+<li>1 de febrero de 2021</li>
+<ul>
+<li>Se agregó el script de utilidad fixpermissions.sh para tomar posesión de los archivos del servidor de Minecraft manualmente (el servicio de inicio systemd lo hace automáticamente si Lo estás usando)</li>
+</ul>
+<li>31 de enero de 2021</li>
+<ul>
+<li>Se añadió .\ delante de las comprobaciones de pantalla -q para evitar que nombres de usuario similares interfieran con la detección de ventanas</li>
+<li>El servidor ahora toma la propiedad de los archivos del servidor en cada inicio para evitar muchos problemas y disgustos al restaurar copias de seguridad, mover archivos, etc.</li>
+</ul>
+<li>20 de diciembre de 2020</li>
+<ul>
+<li>Se añadió compatibilidad experimental con QEMU para 32 bits (i386, i686), similar a cómo funciona la compatibilidad con ARM</li>
+</ul>
+<li>18 de diciembre de 2020</li>
+<ul>
+<li>Se añadió una comprobación de seguridad para evitar que el script se ejecute como root o sudo. Esto provocaría que el script se instalara en la carpeta /root.</li>
+<li>Si sabes lo que haces y quieres anularlo, simplemente edita la extracción de SetupMinecraft.sh; de lo contrario, ejecútalo como ./SetupMinecraft.sh normalmente.</li>
+<li>Se corrigió un error grave que podía provocar la desaparición de start.sh y stop.sh (gracias, Paul y James). Esto estaba relacionado con la poda de registros y la falta de una ruta de acceso fija. Si descargaste el script SetupMinecraft en los últimos 3 días, actualiza y vuelve a intentarlo aquí. ¡Listo!</li>
+</ul>
+<li>15 de diciembre de 2020</li>
+<ul>
+<li>Los paquetes de recursos (incluidos los que habilitan opcionalmente la compatibilidad con RTX) funcionan</li>
+<li>Guía disponible en <a href="https://jamesachambers.com/minecraft-bedrock-server-resource-pack-guide/" target="_blank" rel="noopener">https://jamesachambers.com/minecraft-bedrock-server-resource-pack-guide/</a></li>
+<li>Se agregó la rotación automática de copias de seguridad: el servidor conserva las últimas 10 copias de seguridad. Gracias, aghadjip. <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/33">Problema 33</a></li>
+<li>Se añadió valid_known_packs a la lista blanca de descompresión para evitar que se sobrescriban los paquetes de recursos. Gracias, kmpoppe. <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/53">Solicitud de extracción 53</a></li>
+<li>Crear directorio de registros si no existe. Gracias, omkhar. <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/39">Solicitud de extracción 39</a></li>
+</ul>
+<li>13 de diciembre de 2020</li>
+<ul>
+<li>La beta de RTX ahora es compatible siempre y cuando ya no estés en el canal "beta". Cancela tu suscripción a la beta de RTX y cambia a Minecraft normal. RTX ahora está en Minecraft normal.</li>
+<li>Se corrigió la compatibilidad con ARM para Raspberry Pi, Tinkerboard y otros. ¡Atención, sigue siendo muy lento en ARM!</li>
+<li>Depends.zip actualizado</li>
+</ul>
+<li>10 de diciembre de 2020</li>
   <ul>
-    <li>Fix gpg key import for ARM64 builds</li>
-  </ul>
-  <li>January 14th 2023</li>
-  <ul>
-    <li>Change connectivity check from google.com to minecraft.net to prevent blocking in some countries</li>
-  </ul>
-  <li>September 4th 2022</li>
-  <ul>
-    <li>Remove unnecessary code from fixpermissions.sh</li>
-  </ul>
-  <li>August 12th 2022</li>
-  <ul>
-    <li>Add clean.sh utility script to clean up downloads folder, remove version pinning and force reinstall of current version</li>
-    <li>Enable content log by default which shows errors related to resource/behavior packs</li>
-  </ul>
-  <li>August 12th 2022</li>
-  <ul>
-    <li>Add clean.sh utility script to clean up downloads folder, remove version pinning and force reinstall of current version</li>
-    <li>Enable content log by default which shows errors related to resource/behavior packs</li>
-  </ul>
-  <li>August 10th 2022</li>
-  <ul>
-    <li>Moved DirName variable to a custom variable at the top of SetupMinecraft.sh</li>
-  </ul>
-  <li>August 4th 2022</li>
-  <ul>
-    <li>Script now removes non-alphanumeric characters from the servername variable (to prevent using quotes and other symbols that will break it)</li>
-  </ul>
-  <li>August 2nd 2022</li>
-    <ul>
-      <li>Add Box64 support for 64 bit ARM (aarch64).  32 bit ARM is not recommended as it cannot use Box64 so it will be much slower than if you install a 64-bit version of your OS on the device.</li>
-      <li>You must be running a 64-bit OS to benefit from the Box64 increased speeds (both Ubuntu and Raspberry Pi OS have 64-bit versions)</li>
-      <li>An easy way to check and make sure you are running 64 bit is to use <pre>uname -m</pre> which will return "aarch64" if you are on 64-bit ARM</li>
-    </ul>
-  <li>July 24th 2022</li>
-    <ul>
-        <li>Use libssl1.1 from repository instead of Ubuntu servers due to it changing every week or two (thanks theblujuice, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/129">issue #129)</a></li>
-    </ul>
-  <li>July 21st 2022</li>
-    <ul>
-        <li>Increase timeout in minecraftbe.service to help servers with longer backup times from having startup issues</li>
-    </ul>
-  <li>July 19th 2022</li>
-    <ul>
-        <li>Fix minor syntax error in update.sh</li>
-    </ul>
-  <li>July 14th 2022</li>
-    <ul>
-        <li>Fix syntax error in new libssl3 install</li>
-        <li>Updated depends.zip for ARM devices (the Docker version is strongly recommended for ARM devices)</li>
-    </ul>
-  <li>July 14th 2022</li>
-    <ul>
-        <li>Add libssl3 to dependencies</li>
-    </ul>
-  <li>July 7th 2022</li>
-    <ul>
-        <li>Updated curl fallback installation URL to newest package</li>
-        <li>Punctuation / grammar fixes to README (thanks TheWilbo, <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/128">pull request #128)</a></li>
-    </ul>
-  <li>June 11th 2022</li>
-    <ul>
-        <li>Added allowlist.json and permissions.json default template files to prevent crashes when they are missing (thanks Eike)</li>
-    </ul>
-  <li>June 10th 2022</li>
-    <ul>
-        <li>Fixed problem in escaping screen command in SetupMinecraft.sh (on the startup check)</li>
-    </ul>
-  <li>June 5th 2022</li>
-    <ul>
-        <li>Added additional escaping to screen -list commands to prevent similar names from matching the grep query (thanks wheelibin)</li>
-        <li>Changed grep -q command to use single quotes to prevent expansion of additional characters (I still recommend only letters and numbers for the server label/name for the least amount of trouble)</li>
-    </ul>
-  <li>May 31st 2022</li>
-    <ul>
-        <li>Add check to make sure server.properties exists when unzipping server as without it there will be a startup error</li>
-    </ul>
-  <li>May 26th 2022</li>
-    <ul>
-        <li>Add revert.sh to SetupMinecraft.sh downloads</li>
-        <li>Add version override documentation</li>
-    </ul>
-  <li>May 25th 2022</li>
-    <ul>
-        <li>Added version_pin.txt to allow for manual override of running server version. Run ./revert.sh in your server folder to set version n-1 to run on next restart. Delete version_pin.txt when you want to resume automatic updates. (thanks smallsam)</li>
-    </ul>
-  <li>May 15th 2022</li>
-    <ul>
-        <li>Added screen -wipe to beginning of start.sh to prevent a startup issue that could occur if there was a "dead" screen instance (thanks grimholme)</li>
-    </ul>
-  <li>May 9th 2022</li>
-  <ul>
-    <li>Updated fallback installation URL for OpenSSL 1.1</li>
-  </ul>
-  <li>May 4th 2022</li>
-  <ul>
-    <li>Fixed an issue on Debian where the route command (/sbin/route) is not on the default path by adding a check for this</li>
-    <li>Added Ubuntu 22.04 to tested distributions list (I upgraded my desktop OS to this today)</li>
-  </ul>
-  <li>April 28th 2022</li>
-  <ul>
-    <li>Fixed a line in fixpermissions.sh that could cause picky shells to complain</li>
-  </ul>
-  <li>April 24th 2022</li>
-  <ul>
-    <li>Added dependency package install for libssl1.1 when it's available in apt</li>
-    <li>Added fallback installation for libssl1.1 to hopefully fix the installer for Ubuntu 22.04/22.10 and other distros using libssl3</li>
-    <li>Fixed a minor 'tail' error message that could occur upon starting the server if no logs were created yet</li>
-    <li>Added DEBIAN_NONINTERACTIVE to some apt commands to try to suppress some interactive dialogs (such as running outdated kernel) that were causing the installer to get stuck</li>
-    <li>Fixed a mistake in new multicore backup causing it to select the wrong compressor</li>
-  </ul>
-  <li>April 16th 2022</li>
-  <ul>
-    <li>Added multiple CPU core support for backups which should speed up backup process</li>
-  </ul>
-  <li>March 19th 2022</li>
-  <ul>
-    <li>Removed /sbin qualifier from route command as the PATH variable is now stored at the top of each script by SetupMinecraft.sh (thanks LookedPath, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/120">issue #120</a>)</li>
-  </ul>
-  <li>March 10th 2022</li>
-  <ul>
-    <li>Add new allowlist.json to the unzip whitelist (thanks shaman79, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/118">issue #118</a>)</li>
-    <li>Added buy a coffe / donation information (thanks vandersonmota, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/117">issue #117</a>)</li>
-  </ul>
-  <li>November 2nd 2021</li>
-  <ul>
-    <li>Fixed extra / in front of permissions fix script (thanks MarkBarbieri, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/109">issue #109</a>)</li>
-  </ul>
-  <li>October 31st 2021</li>
-  <ul>
-    <li>Fixed missing sudo from fixpermissions line in start.sh (thanks MarkBarbieri, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/109">issue #109</a>)</li>
-    <li>Fixed missing -a parameter from /etc/sudoers file addition thanks MarkBarbieri, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/109">issue #109</a>)</li>
-  </ul>
-  <li>August 1st 2021</li>
-  <ul>
-    <li>Updated documentation and root path selection prompt to make it more clear that the root directory should be the same for ALL servers</li>
-    <li>Don't change unless installing to a different disk, and then use the same root path for ALL servers as they will follow the structure $ROOTPATH/minecraftbe/yourservername</li>
-    <li>Choosing a perfect storm of invalid paths has resulted in people's server files being pruned before from being off by one folder sublevel etc.  Please follow instructions carefully here and do not change it and make sure you have backups (saved outside of the main Minecraft backups folder) before ever trying to install an additional server or updating existing scripts.</li>
-    <li>Fortunately this person was starting a new server so the pruning didn't get anything serious but I can't stress enough to leave the paths alone unless you're legitimately an expert with a use case like having an entire separate disk for all the Minecraft servers.  Use the same root directory every time (preferably the default)!</li>
-  </ul>
-  <li>July 27th 2021</li>
-  <ul>
-    <li>Cleaned up SetupMinecraft.sh and removed redundant code by organizing code into functions</li>
-    <li>Scripts now fix all server file permissions on startup</li>
-    <li>Added /etc/sudoers.d/minecraftbe file to contain passwordless sudo permission for fixpermissions and sudo systemctl start server</li>
-  </ul>
-  <li>July 21st 2021</li>
-  <ul>
-    <li>Updated documentation and restart.sh to document how to enable systemd's service showing as "online" after called by restart.sh (useful for people tracking the servers using the systemd service) by adding a line to the sudoers file to allow passwordless sudo for the sudo systemctl start yourservername command.  Restart.sh now has commented lines at the bottom along with instructions on how to enable if you need this functionality (most people probably won't)</li>
-    <li>Added error redirection to crontab line to help diagnose failures during scheduled restarts and removed ExecStartPre from the service as it wasn't doing anything (run ./fixpermissions.sh if you need to fix the permissions) and caused compatibility issues with older systemd versions</li>
-  </ul>
-  <li>July 17th 2021</li>
-  <ul>
-    <li>Added in check to ensure start.sh and other scripts are not being ran as root.  If this happens you have to use sudo screen -r to find the screen and the permissions will be wrong since root isn't the owner of the server files</li>
-    <li>If you know you ran the script/server as root (which starts creating files owned by root instead of the regular user) and your server won't start/is wonky run the fixpermissions script from your server folder with ./fixpermissions.sh and it will correct them for you!</li>
-  </ul>
-  <li>July 15th 2021</li>
-  <ul>
-    <li>Added update.sh convenience script to run SetupMinecraft.sh to update everything to the latest version</li>
-    <li>Added validation loop for directory path -- if you are upgrading from an old version you should use the default directory.</li>
-    <li>Nothing good can come from changing this and I've never seen or heard of it solving a single problem despite being requested for years (especially if you don't understand relative vs fully qualified Linux paths and other pitfalls -- leave it default!).</li>
-    <li>Attempting to solve this problem with safety checks in case this is useful to some people and I just haven't heard about it but it may be removed entirely or turned into a check that you have to download and modify the script to enable if it continues to be a source of strife for people.</li>
-    <li>Updated depends.zip for Raspberry Pis</li>
-  </ul>
-  <li>July 4th 2021</li>
-  <ul>
-    <li>Added missing sudo line to some prerequistes and removed apt-get install sudo as the script no longer runs as root (install sudo if missing) - thanks Rick Horn</li>
-  </ul>
-  <li>July 3rd 2021</li>
-  <ul>
-    <li>Added Accept-Encoding: Identity header to curl as a very small % of users are getting an "Access Denied" error without this header (thanks titiscan, <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/95">pull request #95</a></li>
-    <li>Added default language header to curl as non-english computers were getting an Access Denied error</li>
-    <li>Script now checks for gawk being present in start.sh.  If it's not installed (likely due to reusing old SetupMinecraft.sh files) timestamps will be disabled.  This will prevent the server from failing to start.  This is avoided by not running an old copy of SetupMinecraft.sh!</li>
-    <li>Removed broken screen -r command at the end of SetupMinecraft.sh as fixing it actually causes lockups -- instead now gives the command (screen -r) to pull up the Minecraft console.  Press Ctrl+A then Ctrl+D to hide the console once you're inside it.</li>
-    <li>Added code to prevent SetupMinecraft.sh from being ran as a local file (please use the new method of curl https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh | bash)</li>
-  </ul>
-  <li>July 2nd 2021</li>
-  <ul>
-    <li>Improved dependency detection and installation</li>
-    <li>Removed wget dependency</li>
-    <li>Added gawk dependency -- this should not have any impact on most systems but on systems that use mawk by default this will fix server startup issues related to timestamps since mawk doesn't support strftime</li>
-    <li>Fixed stop.sh's -t countdown option (thanks da99Beast, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/76">issue #76</a>)</li>
-    <li>Fixed a nasty issue where the installation of libcurl3 over the top of libcurl4 was allowed in some configurations (like Ubuntu 18.04) and was clobbering curl (thanks Goretech)</li>
-    <li>Fixed an issue where empty folders could be created in the wrong location if start.sh was not ran from the server folder (thanks CobraBitYou, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/93">issue #93</a></li>
-  </ul>
-  <li>July 1st 2021</li>
-  <ul>
-    <li>Changed from wget to curl as wget is freezing (but curl works)</li>
-    <li>Added randomization to user agent</li>
-  </ul>
-  <li>June 19th 2021</li>
-  <ul>
-    <li>Fixed timestamps to display on every line (thanks murkyl)</li>
-    <li>Added chmod command after unzip line to make bedrock_server executable for <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/22">issue #22</a> (thanks murkyl)</li>
-    <li>Merged <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/91">pull request #91</a> from starkey-01 to add prompt for an alternate installation directory.  This has been requested for a while so thanks starkey-01!</li>
-    <li>Merged <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/88">pull request #88</a> clarifying instructions to run script as non-root user (thanks sparagi!)</li>
-  </ul>
-  <li>May 23nd 2021</li>
-  <ul>
-    <li>The fixpermissions.sh script now displays the last 5 lines from the latest log file to aid in troubleshooting.  If your server won't start this script often will take care of it and the logs can give useful information otherwise!</li>
-  </ul>
-  <li>May 22nd 2021</li>
-  <ul>
-    <li>Added setting the path variable to each script to prevent service from failing to start due to not being able to find the right path.</li>
-    <li>Please redownload SetupMinecraft.sh for this update.  The script will give you a warning each time you start up that it couldn't set the path variable without the new SetupMinecraft.sh script</li>
-    <li>Added user agent to wget string to prevent update check from failing</li>
-    <li>Added automatic update to SetupMinecraft.sh if it has not been modified for more than 7 days</li>
-    <li>Updated Raspberry Pi dependencies</li>
-  </ul>
-  <li>April 22nd 2021</li>
-  <ul>
-    <li>Added a safety check to prevent installing on 32 bit (i386 or i686) operating systems.  The official Bedrock dedicated server has only been released as a 64 bit (x86_64) binary and attempts at emulation on 32 bit have failed to yield any successful results!</li>
-    <li>Added chmod +x bedrock_server to start.sh as updates seem to be removing executable permissions sometimes</li>
-    <li>Fix removing old backup directory context (thanks murkyl, <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/76">issue #76</a>)<li>
-  </ul>
-  <li>April 20th 2021</li>
-  <ul>
-    <li>Fully qualified route command with /sbin/route to alleviate network check breaking some servers</li>
-    <li>Added safety check to prevent using the server label 'minecraftbe' which can break the scripts</li>
-    <li>Added libc6 dependency check as several people have reported libns1.so.1 missing</li>
-    <li>Added curl and libcurl3 dependency as a fallback for older distros to avoid missing libcurl.so errors</li>
-    <li>Added libcrypt1 dependency check</li>
-  </ul>
-  <li>April 7th 2021</li>
-  <ul>
-    <li>If you are updating from an old version make sure you remove the old SetupMinecraft.sh and redownload the new version from scratch.  If you are seeing something like userxname in the systemd service you're using an old version of SetupMinecraft.sh and need to download the latest</li>
-    <li>Updated fixpermissions.sh -- can fix issues with permissions if you are seeing them!</li>
-    <li>Fixed a bug with userxname appearing in start.sh and not being updated to the correct username</li>
-    <li>Fixed an issue that could trigger PAM authentication in start.sh</li>
-  </ul>
-  <li>March 16th 2021</li>
-  <ul>
-    <li>Fixed a incomplete sudo line in start.sh that was throwing an error (thanks /u/zfa from reddit!)</li>
-  </ul>
-  <li>February 1st 2021</li>
-  <ul>
-    <li>Added fixpermissions.sh utility script to take ownership of Minecraft server files manually (the systemd startup service does this automatically for you if you are using it)</li>
-  </ul>
-  <li>January 31st 2021</li>
-  <ul>
-    <li>Added .\ in front of the screen -q checks to prevent similar usernames from tripping up window detection</li>
-    <li>Server now takes ownership of server files on each start to prevent folks a whole heap of trouble and heartache when restoring backups/moving files/etc.</li>
-  </ul>
-  <li>December 20th 2020</li>
-  <ul>
-    <li>Added experimental QEMU support for 32 bit (i386, i686) similar to how the ARM support works</li>
-  </ul>
-  <li>December 18th 2020</li>
-  <ul>
-    <li>Added safety check to prevent the script from being ran as root or sudo.  This would cause the script to be installed to the /root folder.</li>
-    <li>If you know what you are doing and want to override just edit the check out of SetupMinecraft.sh but otherwise just run it as ./SetupMinecraft.sh normally.</li>
-    <li>Fixed a nasty bug that could cause start.sh and stop.sh to disapper (thanks Paul and James).  This was related to log pruning and not having a hard path.  If you downloaded the SetupMinecraft script in the past 3 days update and try again here and you'll be set!</li>
-  </ul>
-  <li>December 15th 2020</li>
-  <ul>
-    <li>Resource packs (including ones that optionally enable RTX support) are working</li>
-    <li>Guide available at <a href="https://jamesachambers.com/minecraft-bedrock-server-resource-pack-guide/" target="_blank" rel="noopener">https://jamesachambers.com/minecraft-bedrock-server-resource-pack-guide/</a></li>
-    <li>Added automatic backup rotation -- server keeps last 10 backups - thanks aghadjip <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/33">Issue 33</a></li>
-    <li>Added valid_known_packs to unzip whitelist to prevent resource packs from getting overwritten - thanks kmpoppe - <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/53">Pull Request 53</a></li>
-    <li>Create logs directory if it doesn't exist - thanks omkhar - <a href="https://github.com/TheRemote/MinecraftBedrockServer/pull/39">Pull Request 39</a></li>
-  </ul>
-  <li>December 13th 2020</li>
-  <ul>
-    <li>RTX beta is now supported as long as you aren't on the "beta" channel anymore.  Unenroll from the RTX beta and downgrade to normal Minecraft.  RTX is in normal Minecraft now.</li>
-    <li>Fixed ARM support for Raspberry Pi, Tinkerboard, and others.  Be warned, it's still very slow on ARM!</li>
-    <li>Updated depends.zip</li>
-  </ul>
-  <li>December 10th 2020</li>
-  <ul>
-    <li>Cleaned up documentation</li>
-    <li>Added notice that the RTX beta version of Minecraft's dedicated server has not been released yet.  Support will be added the moment it is!</li>
-    <li>Added alpha software notice for Bedrock dedicated server per <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/34">issue 34</a></li>
-  </ul>
-  <li>November 17th 2020</li>
-  <ul>
-    <li>Fixed server autoupdating in start.sh</li>
-    <li>Minecraft.net had made a change where the "--spider" parameter would return a 503 -- removed this to fix automatic updates</li>
-  </ul>
-  <li>July 24th 2019</li>
-  <ul>
-    <li>Fixed Raspberry Pi support</li>
-  </ul>
-  <li>July 10th 2019</li>
-  <ul>
-    <li>Fixed OpenSSL error in 1.12 (thanks obviator!)</li>
-    <li>Fixed ports not choosing defaultS if nothing is entered (thanks sweavo!)</li>
-  </ul>
-  <li>July 2nd 2019</li>
-  <ul>
-    <li>Added libcurl4 Bedrock server dependency to installer script to prevent server startup from failing</li>
-  </ul>
-  <li>July 1st 2019</li>
-  <ul>
-    <li>Added support for multiple servers</li>
-    <li>Choose the folder name and port for the server in SetupMinecraft.sh (must be unique per server instance)</li>
-  </ul>
-  <li>May 23rd 2019</li>
-  <ul>
-    <li>Fixed typo in restart.sh where there was a space after stop command preventing the server from closing cleanly</li>
-    <li>Added 10 second sleep after a force close to give the server time to fully close before calling start.sh</li>
-    <li>Fixed server not restarting after scheduled nightly reboot (related to restart.sh bug)</li>
-    <li>Removed some direct (for example paths like /bin/sleep) that were harming cross platform compatibility</li>
-  </ul>
-  <li>April 26th 2019</li>
-  <ul>
-    <li>Tested new Bedrock dedicated server 1.11.1.2</li>
-    <li>Added startup counter to server instead of waiting a flat 4s to reduce unnecessary waiting</li>
-    <li>Fixed ARM support (64 bit required)</li>
-  </ul>
-  <li>April 18th 2019</li>
-  <ul>
-    <li>Changed StopChecks++ to StopChecks=$((StopChecks+1)) to improve portability (thanks Jason B.)</li>
-    <li>Added TimeoutStartSec=600 to server to prevent it being killed if taking longer than usual to download server</li>
-  </ul>
-  <li>March 7th 2019</li>
-  <ul>
-    <li>Added Armbian support</li>
-    <li>Tested with Tinkerboard</li>
-    <li>Fixed portability issue with route vs /sbin/route</li>
-  </ul>
-  <li>March 2nd 2019</li>
-  <ul>
-    <li>Running the SetupMinecraft.sh script after already installing now updates all scripts and reconfigures the minecraftbe service</li>
-    <li>Script now works on any Debian based distribution (Ubuntu, Debian, Raspbian, etc.)<br>
-    <li>Added *very slow* support for ARM platforms such as Raspberry Pi with QEMU emulation of x86_64</li>
-    <li>Renamed service to minecraftbe to avoid confusion with Java version</li>
-  </ul>
-  <li>February 15th 2019</li>
-  <ul>
-    <li>Backups now compress into .tar.gz format (saved in backups folder)</li>
-    <li>Startup service waits up to 20 seconds for an internet connection to allow time for DHCP to retrieve an IP address</li>
-    <li>Removed unnecessary sleep time on stop.sh script so it returns as soon as the minecraft server closes</li>
-  </ul>
-  <li>February 8th 2019</li>
-  <ul>
-    <li>Initial release</li>
-  </ul>
+<li>Documentación limpia</li>
+<li>Se agregó un aviso indicando que la versión beta RTX del servidor dedicado de Minecraft aún no se ha lanzado. ¡Se añadirá soporte en cuanto esté disponible!</li>
+<li>Se añadió un aviso de software alfa para el servidor dedicado Bedrock según el <a href="https://github.com/TheRemote/MinecraftBedrockServer/issues/34">número 34</a></li>
+</ul>
+<li>17 de noviembre de 2020</li>
+<ul>
+<li>Se corrigió la actualización automática del servidor en start.sh</li>
+<li>Minecraft.net había realizado un cambio donde el parámetro "--spider" devolvía un error 503; se eliminó esto para corregir las actualizaciones automáticas</li>
+</ul>
+<li>24 de julio de 2019</li>
+<ul>
+<li>Se corrigió la compatibilidad con Raspberry Pi</li>
+</ul>
+<li>10 de julio de 2019</li>
+<ul>
+<li>Se corrigió el error de OpenSSL en la versión 1.12 (gracias) ¡Obviador!)</li>
+<li>Se corrigió que los puertos no eligieran los valores predeterminados si no se ingresaba nada (¡gracias, sweavo!)</li>
+</ul>
+<li>2 de julio de 2019</li>
+<ul>
+<li>Se agregó la dependencia del servidor Bedrock de libcurl4 al script de instalación para evitar que el servidor falle al iniciarse</li>
+</ul>
+<li>1 de julio de 2019</li>
+<ul>
+<li>Se agregó compatibilidad con múltiples servidores</li>
+<li>Seleccione el nombre de la carpeta y el puerto para el servidor en SetupMinecraft.sh (debe ser único por instancia de servidor)</li>
+</ul>
+<li>23 de mayo de 2019</li>
+<ul>
+<li>Se corrigió un error tipográfico en restart.sh donde había un espacio después del comando de detención que impedía que el servidor se cerrara correctamente</li>
+<li>Se agregó un tiempo de suspensión de 10 segundos después de un cierre forzado para que el servidor tenga tiempo de cerrarse por completo antes de llamar start.sh</li>
+<li>Se corrigió el error del servidor que no se reiniciaba tras un reinicio nocturno programado (relacionado con el error restart.sh)</li>
+<li>Se eliminaron algunas rutas directas (por ejemplo, /bin/sleep) que perjudicaban la compatibilidad multiplataforma</li>
+</ul>
+<li>26 de abril de 2019</li>
+<ul>
+<li>Se probó el nuevo servidor dedicado Bedrock 1.11.1.2</li>
+<li>Se añadió un contador de inicio al servidor en lugar de esperar solo 4 segundos para reducir esperas innecesarias</li>
+<li>Se corrigió la compatibilidad con ARM (se requieren 64 bits)</li>
+</ul>
+<li>18 de abril de 2019</li>
+<ul>
+<li>Se cambió StopChecks++ a StopChecks=$((StopChecks+1)) para mejorar la portabilidad (gracias, Jason B.)</li>
+<li>Se añadió TimeoutStartSec=600 al servidor Para evitar que se cierre si la descarga del servidor tarda más de lo habitual.</li>
+</ul>
+<li>7 de marzo de 2019</li>
+<ul>
+<li>Compatibilidad con Armbian añadida</li>
+<li>Probado con Tinkerboard</li>
+<li>Problema de portabilidad corregido con route vs /sbin/route</li>
+</ul>
+<li>2 de marzo de 2019</li>
+<ul>
+<li>Ejecutar el script SetupMinecraft.sh después de la instalación ahora actualiza todos los scripts y reconfigura el servicio minecraftbe</li>
+<li>El script ahora funciona en cualquier distribución basada en Debian (Ubuntu, Debian, Raspbian, etc.).<br>
+<li>Compatibilidad *muy lenta* añadida con plataformas ARM como Raspberry Pi con emulación QEMU de x86_64</li>
+<li>Servicio renombrado a minecraftbe para evitar confusiones con la versión de Java</li>
+</ul>
+<li>15 de febrero de 2019</li>
+<ul>
+<li>Las copias de seguridad ahora se comprimen en formato .tar.gz (se guardan en la carpeta de copias de seguridad)</li>
+<li>El servicio de inicio espera hasta 20 segundos a que se establezca una conexión a internet para que DHCP pueda recuperar una dirección IP</li>
+<li>Se eliminó el tiempo de suspensión innecesario del script stop.sh para que vuelva a funcionar en cuanto se cierra el servidor de Minecraft</li>
+</ul>
+<li>8 de febrero de 2019</li>
+<ul>
+<li>Versión inicial</li>
+</ul>
 </ul>
