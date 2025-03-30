@@ -1,4 +1,6 @@
 # Minecraft Bedrock Server
+### Este repositorio ha sido traducido al español para facilitar su comprensión y uso por parte de hispanohablantes
+
 
 [日本語版 README はこちら](https://github.com/TheRemote/MinecraftBedrockServer/blob/master/README_jp.md)
 
